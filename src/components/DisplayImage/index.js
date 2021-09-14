@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
+import LikeButton from '../Button';
 
 
 const API_KEY = "jqEIP8jnSKUVM3CsAjTELRlaMRw5u8RfKTCXYtz8"
@@ -59,7 +59,7 @@ class DisplayImage extends React.Component {
                                 <Card.Body>
                                 <Card.Title>{image.title}</Card.Title>
                                 <Card.Text>{image.explanation}</Card.Text>
-                                <Button variant="primary">Like</Button>
+                                <LikeButton variant="primary">Like</LikeButton>
                                 </Card.Body>
                             </Card>
                         </Row>
