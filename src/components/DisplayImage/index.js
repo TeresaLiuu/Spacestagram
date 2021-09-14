@@ -28,13 +28,7 @@ class DisplayImage extends React.Component {
         });
     }
 
-    // toCamelCase = function(str) {
-    //     // Reference: https://stackoverflow.com/questions/2970525/converting-any-string-into-camel-case
-    //     return str
-    //         .replace(/\s(.)/g, function($1) { return $1.toUpperCase(); })
-    //         .replace(/\s/g, '')
-    //         .replace(/^(.)/, function($1) { return $1.toLowerCase(); });
-    // }
+
 
 
     // copyright: "Tony Hallas"
@@ -52,6 +46,7 @@ class DisplayImage extends React.Component {
                 {this.state.data.map(image => (
                     <div key={image.title}>
                         <p>Title: {image.title}</p>
+                        <p>Date: {image.date}</p>
                         <p>Explanation: {image.explanation}</p>
                         <img src={image.url} alt={image.title} />
                         <button type="submit" onClick={this.handleFormSubmit}>Like</button>

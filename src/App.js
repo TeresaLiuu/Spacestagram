@@ -1,12 +1,17 @@
 import React from 'react';
-// import { BrowserRouter as Router } from 'react-router-dom';
+import Header from '../src/components/Header';
 import DisplayImage from '../src/components/DisplayImage';
+import Container from '@material-ui/core/Container';
+
 
 
 function App() {
     return (
         <div>
-          <DisplayImage />
+          <Container maxWidth="md">
+            <Header />
+            <DisplayImage />
+          </Container>
 
         </div>
     );
