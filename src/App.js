@@ -3,8 +3,6 @@ import Header from '../src/components/Header';
 import DisplayImage from '../src/components/DisplayImage';
 import Container from '@material-ui/core/Container';
 
-
-
 function App() {
     return (
         <div>
@@ -12,7 +10,6 @@ function App() {
             <Header />
             <DisplayImage />
           </Container>
-
         </div>
     );
 }

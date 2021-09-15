@@ -2,8 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { FcLike } from "react-icons/fc";
 import { FcLikePlaceholder } from "react-icons/fc";
-// import './style.css';
-
+import './style.css';
 
 
 class LikeButton extends React.Component {
@@ -26,7 +25,7 @@ class LikeButton extends React.Component {
     render() {
         return (  
             <div>
-                <Button variant="light" onClick={this.handleClick}>
+                <Button className="likeBtn" variant="light" onClick={this.handleClick}>
                     {this.state.isToggleOn ?  <FcLike size="2em"/>: <FcLikePlaceholder size="2em"/>}
                 </Button>  
             </div>
