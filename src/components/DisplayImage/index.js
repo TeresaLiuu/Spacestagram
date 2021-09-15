@@ -114,6 +114,3 @@ class DisplayImage extends React.Component {
 }
 
 export default DisplayImage;
-
-
-
