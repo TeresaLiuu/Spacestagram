@@ -10,7 +10,7 @@ function Jumbotron({ children }) {
                 paddingTop: 120,
                 textAlign: `center`
             }}
-            className="jumbotron"
+            className='jumbotron'
         >
             {children}
         </div>

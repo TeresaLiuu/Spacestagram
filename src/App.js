@@ -9,7 +9,7 @@ function App() {
     return (
         <div>
           <ReactNotification />
-          <Container maxWidth="md">
+          <Container maxWidth='md'>
             <Header />
             <DisplayImage />
           </Container>

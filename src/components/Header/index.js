@@ -5,7 +5,7 @@ import './style.css'
 function Header(){
     return(
         <Jumbotron>
-            <h1 className="gradient-text">Spacestagram</h1>
+            <h1 className='gradient-text'>Spacestagram</h1>
         </Jumbotron>
     )
 }

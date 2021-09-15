@@ -1,0 +1,12 @@
+.input-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dateLabel{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 25px;
+    color:grey;
+  }
