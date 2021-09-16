@@ -15,7 +15,8 @@
 <br />
 
 ![David](https://img.shields.io/david/expressjs/express)
-![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/supunlakmal/thismypc/graphs/commit-activity) [![Website thismypc.com](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://thismypc.com/)
+![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg) 
+![Website thismypc.com](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)
 ![APM](https://img.shields.io/apm/l/vim-mode?color=pink)
 
 </div>
@@ -54,6 +55,7 @@ git clone https://github.com/TeresaLiuu/spacestagram.git
 
 
 ## Usage
+
 After you clone this repo to your desktop, go to its root directory and run `npm install` to install its dependencies.
 
 Once the dependencies are installed, you can run  `npm start` to start the application. You will then be able to access it at localhost:3000
