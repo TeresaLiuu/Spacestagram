@@ -5,8 +5,9 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import { ButtonToolbar } from 'react-bootstrap';
-import { FacebookIcon, FacebookMessengerIcon } from 'react-share';
-import { FacebookShareButton, FacebookMessengerShareButton } from 'react-share';
+import { FacebookShareButton, FacebookIcon } from 'react-share';
+import { TwitterShareButton, TwitterIcon } from 'react-share';
+import { LinkedinShareButton, LinkedinIcon } from 'react-share';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -89,13 +90,20 @@ class DisplayImage extends React.Component {
                                         <LikeButton />
                                     </ButtonGroup>
                                     <ButtonGroup aria-label='First group'>
-                                        <FacebookShareButton 
+                                        <FacebookShareButton
+                                            quote = {image.explanation} 
                                             url ={image.url}>
                                             <FacebookIcon size={60} round={true}/>
                                         </FacebookShareButton>
-                                        <FacebookMessengerShareButton url ={image.url}>
-                                            <FacebookMessengerIcon size={60} round={true}/>
-                                        </FacebookMessengerShareButton>
+                                        <LinkedinShareButton 
+                                            url ={image.url}>
+                                            <LinkedinIcon size={60} round={true}/>
+                                        </LinkedinShareButton>
+                                        <TwitterShareButton
+                                            title = {image.title} 
+                                            url ={image.url}>
+                                            <TwitterIcon size={60} round={true}/>
+                                        </TwitterShareButton>
                                     </ButtonGroup>
                                     </ButtonToolbar>
                                 </Card.Body>
