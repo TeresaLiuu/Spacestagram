@@ -9,6 +9,7 @@ import { FacebookShareButton, FacebookIcon } from 'react-share';
 import { TwitterShareButton, TwitterIcon } from 'react-share';
 import { LinkedinShareButton, LinkedinIcon } from 'react-share';
 import DatePicker from 'react-datepicker';
+import ReactReadMoreReadLess from "react-read-more-read-less";
 import 'react-datepicker/dist/react-datepicker.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
@@ -58,6 +59,7 @@ class DisplayImage extends React.Component {
         return [year, month, day].join('-');
     }
 
+
     render() {
         return (  
             <div>
@@ -79,32 +81,43 @@ class DisplayImage extends React.Component {
                 {this.state.data.map(image => (
                     <div key={image.title}>
                         <Row className='row justify-content-center mt-3' >
-                            <Card className='text-center' style={{ width: '35rem' }}>
+                            <Card className='text-center mb-4 shadow p-3 mb-5 bg-white rounded' style={{ width: '35rem' }}>
                                 <Card.Img className='mt-3' variant='top' src={image.url} alt={image.title} />
                                 <Card.Body>
-                                <Card.Subtitle>{image.date}</Card.Subtitle>
-                                <Card.Title>{image.title}</Card.Title>
-                                <Card.Text>{image.explanation}</Card.Text>
+                                    <Card.Subtitle className='d-flex justify-content-end'>
+                                        {image.date}
+                                    </Card.Subtitle>
+                                    <Card.Title>
+                                        {image.title}
+                                    </Card.Title>
+                                    <Card.Text>
+                                        <ReactReadMoreReadLess
+                                            charLimit={200}
+                                            readMoreText={"Read more ▼"}
+                                            readLessText={"Read less ▲"}>
+                                            {image.explanation}
+                                        </ReactReadMoreReadLess>
+                                    </Card.Text>
                                     <ButtonToolbar className='justify-content-between'>
-                                    <ButtonGroup aria-label='First group'>
-                                        <LikeButton />
-                                    </ButtonGroup>
-                                    <ButtonGroup aria-label='First group'>
-                                        <FacebookShareButton
-                                            quote = {image.explanation} 
-                                            url ={image.url}>
-                                            <FacebookIcon size={60} round={true}/>
-                                        </FacebookShareButton>
-                                        <LinkedinShareButton 
-                                            url ={image.url}>
-                                            <LinkedinIcon size={60} round={true}/>
-                                        </LinkedinShareButton>
-                                        <TwitterShareButton
-                                            title = {image.title} 
-                                            url ={image.url}>
-                                            <TwitterIcon size={60} round={true}/>
-                                        </TwitterShareButton>
-                                    </ButtonGroup>
+                                        <ButtonGroup aria-label='First group'>
+                                            <LikeButton />
+                                        </ButtonGroup>
+                                        <ButtonGroup aria-label='First group'>
+                                            <FacebookShareButton
+                                                quote = {image.explanation} 
+                                                url ={image.url}>
+                                                <FacebookIcon size={60} round={true}/>
+                                            </FacebookShareButton>
+                                            <LinkedinShareButton 
+                                                url ={image.url}>
+                                                <LinkedinIcon size={60} round={true}/>
+                                            </LinkedinShareButton>
+                                            <TwitterShareButton
+                                                title = {image.title} 
+                                                url ={image.url}>
+                                                <TwitterIcon size={60} round={true}/>
+                                            </TwitterShareButton>
+                                        </ButtonGroup>
                                     </ButtonToolbar>
                                 </Card.Body>
                             </Card>
