@@ -1,4 +1,4 @@
-## Spacestagram
+# Spacestagram
 
 <div align="center">
     <a href="https://spacestagram-teresa.herokuapp.com/">
@@ -21,15 +21,19 @@
 </div>
 
 > Spacestagram is an app used for browsing Astronomy picture of the day (APOD).
+<br />https://spacestagram-teresa.herokuapp.com/
 
-## App Screenshots
+## App Features
+
+- Date picker : Pick a date to see the astronomy picture of the day
+- Click to Like/Unlike
+- Share the image to Facebook/Twitter feed 
 
 |                                                                             Date Picker                                                                              |                                                                      Description                                                                       |                                                                                     Share To Facebook                                                                                      |                                                                                     Share to Twitter                                                                                      |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | <img alt="date picker" src="https://user-images.githubusercontent.com/56751349/133546067-1d9fd109-b1a4-4bd7-bce5-362dd760faa9.png" title="date picker" width="100%"> | <img alt="APOD" src="https://user-images.githubusercontent.com/56751349/133545857-50accedb-5f92-48b0-b10b-de585d4e676e.png" title="APOD" width="100%"> | <img alt="Share to fb" src="https://user-images.githubusercontent.com/56751349/133551991-583fdff3-9118-4c4a-8489-80257b00c63f.png" title="Share to fb" width="100%"> | <img alt="Share to Twitter" src="https://user-images.githubusercontent.com/56751349/133552200-dbb1272e-1a59-4327-a155-9f68363ba830.png" title="Share to Twitter" width="100%"> |
 
 ## Developing
-
 #### Built With
 
 - [Node JS](https://nodejs.org/en/)
@@ -38,13 +42,22 @@
 - [React-Bootstrap](https://react-bootstrap.github.io/)
 - [NPM](https://www.npmjs.com/)
 
-#### Clone Project
+## Setup
 
 ```shell
 git clone https://github.com/TeresaLiuu/spacestagram.git
 ```
 
-This Command will copy a full project to your local environment
+- Clone this repo to your desktop
+<br />
+- Run `npm install` to install all the dependencies.
+
+
+## Usage
+After you clone this repo to your desktop, go to its root directory and run `npm install` to install its dependencies.
+
+Once the dependencies are installed, you can run  `npm start` to start the application. You will then be able to access it at localhost:3000
+
 
 ## Dependencies
 
@@ -60,3 +73,9 @@ This Command will copy a full project to your local environment
 - "react-scripts": "4.0.3",
 - "react-share": "^4.4.0",
 - "web-vitals": "^1.1.2"
+
+
+
+
+
+
