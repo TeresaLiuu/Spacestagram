@@ -72,6 +72,7 @@ Once the dependencies are installed, you can run  `npm start` to start the appli
 - "react-dom": "^17.0.2",
 - "react-icons": "^4.2.0",
 - "react-notifications-component": "^3.1.0",
+- "react-read-more-read-less": "^1.0.7",
 - "react-scripts": "4.0.3",
 - "react-share": "^4.4.0",
 - "web-vitals": "^1.1.2"
