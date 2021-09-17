@@ -71,6 +71,7 @@ Once the dependencies are installed, you can run  `npm start` to start the appli
 - "react-datepicker": "^4.2.1",
 - "react-dom": "^17.0.2",
 - "react-icons": "^4.2.0",
+- "react-loader-spinner": "^4.0.0",
 - "react-notifications-component": "^3.1.0",
 - "react-read-more-read-less": "^1.0.7",
 - "react-scripts": "4.0.3",

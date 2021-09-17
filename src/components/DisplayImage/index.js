@@ -10,10 +10,10 @@ import { TwitterShareButton, TwitterIcon } from 'react-share';
 import { LinkedinShareButton, LinkedinIcon } from 'react-share';
 import DatePicker from 'react-datepicker';
 import ReactReadMoreReadLess from "react-read-more-read-less";
+import { LoaderLarge } from "../Loader"
 import 'react-datepicker/dist/react-datepicker.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
-
 
 const apiKey = 'jqEIP8jnSKUVM3CsAjTELRlaMRw5u8RfKTCXYtz8';
 class DisplayImage extends React.Component {
@@ -21,6 +21,7 @@ class DisplayImage extends React.Component {
         data: [],
         startDate: new Date(),
         endDate: new Date(),
+        loading: false,
     }
 
     componentDidMount() {
@@ -28,24 +29,21 @@ class DisplayImage extends React.Component {
         this.getImageData(this.state.startDate);
     }
 
-    handleDateChange(startDate) {
-        this.getImageData(startDate)
-    }
-
     // Calling NASA API to retrieve data
     getImageData(date){
+        this.setState({loading: true})
         const startDate = this.toYYYYMMDD(date)
         const endDate = this.toYYYYMMDD(this.state.endDate)
         axios.get(`https://api.nasa.gov/planetary/apod?start_date=${startDate}&end_date=${endDate}&api_key=${apiKey}`)
         .then(response => {
-            this.setState({ data: response.data, startDate: date });
+            this.setState({ data: response.data, startDate: date, loading: false });
         })
         .catch(error => {
             throw new Error(error);
         });
     }
 
-    // Convert date to YYYY-MM-DD format
+    // toYYYYMMDD converts date to YYYY-MM-DD format
     toYYYYMMDD(date){
         let month = '' + (date.getMonth() + 1);
         let day = '' + date.getDate();
@@ -58,7 +56,6 @@ class DisplayImage extends React.Component {
 
         return [year, month, day].join('-');
     }
-
 
     render() {
         return (  
@@ -77,53 +74,54 @@ class DisplayImage extends React.Component {
                     </div>
                 </form>
                 </div>
-                
-                {this.state.data.map(image => (
-                    <div key={image.title}>
-                        <Row className='row justify-content-center mt-3' >
-                            <Card className='text-center mb-4 shadow p-3 mb-5 bg-white rounded' style={{ width: '35rem' }}>
-                                <Card.Img className='mt-3' variant='top' src={image.url} alt={image.title} />
-                                <Card.Body>
-                                    <Card.Subtitle className='d-flex justify-content-end'>
-                                        {image.date}
-                                    </Card.Subtitle>
-                                    <Card.Title>
-                                        {image.title}
-                                    </Card.Title>
-                                    <Card.Text>
-                                        <ReactReadMoreReadLess
-                                            charLimit={200}
-                                            readMoreText={"Read more ▼"}
-                                            readLessText={"Read less ▲"}>
-                                            {image.explanation}
-                                        </ReactReadMoreReadLess>
-                                    </Card.Text>
-                                    <ButtonToolbar className='justify-content-between'>
-                                        <ButtonGroup aria-label='First group'>
-                                            <LikeButton />
-                                        </ButtonGroup>
-                                        <ButtonGroup aria-label='First group'>
-                                            <FacebookShareButton
-                                                quote = {image.explanation} 
-                                                url ={image.url}>
-                                                <FacebookIcon size={60} round={true}/>
-                                            </FacebookShareButton>
-                                            <LinkedinShareButton 
-                                                url ={image.url}>
-                                                <LinkedinIcon size={60} round={true}/>
-                                            </LinkedinShareButton>
-                                            <TwitterShareButton
-                                                title = {image.title} 
-                                                url ={image.url}>
-                                                <TwitterIcon size={60} round={true}/>
-                                            </TwitterShareButton>
-                                        </ButtonGroup>
-                                    </ButtonToolbar>
-                                </Card.Body>
-                            </Card>
-                        </Row>
-                    </div>
-                ))}
+                { this.state.loading ? (<LoaderLarge />) 
+                    : (this.state.data.map(image => (
+                        <div key={image.title}>
+                            <Row className='row justify-content-center mt-3' >
+                                <Card className='text-center mb-4 shadow p-3 mb-5 bg-white rounded' style={{ width: '35rem' }}>
+                                    <Card.Img className='mt-3' variant='top' src={image.url} alt={image.title} />
+                                    <Card.Body>
+                                        <Card.Subtitle className='d-flex justify-content-end'>
+                                            {image.date}
+                                        </Card.Subtitle>
+                                        <Card.Title>
+                                            {image.title}
+                                        </Card.Title>
+                                        <Card.Text>
+                                            <ReactReadMoreReadLess
+                                                charLimit={200}
+                                                readMoreText={'Read more ▼'}
+                                                readLessText={'Read less ▲'}>
+                                                {image.explanation}
+                                            </ReactReadMoreReadLess>
+                                        </Card.Text>
+                                        <ButtonToolbar className='justify-content-between'>
+                                            <ButtonGroup aria-label='First group'>
+                                                <LikeButton />
+                                            </ButtonGroup>
+                                            <ButtonGroup aria-label='First group'>
+                                                <FacebookShareButton
+                                                    quote = {image.explanation} 
+                                                    url ={image.url}>
+                                                    <FacebookIcon size={60} round={true}/>
+                                                </FacebookShareButton>
+                                                <LinkedinShareButton 
+                                                    url ={image.url}>
+                                                    <LinkedinIcon size={60} round={true}/>
+                                                </LinkedinShareButton>
+                                                <TwitterShareButton
+                                                    title = {image.title} 
+                                                    url ={image.url}>
+                                                    <TwitterIcon size={60} round={true}/>
+                                                </TwitterShareButton>
+                                            </ButtonGroup>
+                                        </ButtonToolbar>
+                                    </Card.Body>
+                                </Card>
+                            </Row>
+                        </div>
+                    )))
+                }
             </div>
         )
     }
